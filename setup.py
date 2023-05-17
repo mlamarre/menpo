@@ -25,7 +25,7 @@ install_requires = ["numpy>=1.14", "scipy>=1.0", "matplotlib>=3.0", "pillow>=4.0
 
 setup(
     name="menpo",
-    version=version,
+    version="0.12.3",
     cmdclass=cmdclass,
     description="A Python toolkit for handling annotated data",
     author="The Menpo Team",

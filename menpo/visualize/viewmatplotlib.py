@@ -60,10 +60,7 @@ class MatplotlibRenderer(Renderer):
         filename,
         format="png",
         dpi=None,
-        face_colour="w",
-        edge_colour="w",
         orientation="portrait",
-        paper_type="letter",
         transparent=False,
         pad_inches=0.1,
         overwrite=False,
@@ -80,42 +77,12 @@ class MatplotlibRenderer(Renderer):
             a `str`.
         dpi : `int` > 0 or ``None``, optional
             The resolution in dots per inch.
-        face_colour : See Below, optional
-            The face colour of the figure rectangle.
-            Example options ::
-
-                {``r``, ``g``, ``b``, ``c``, ``m``, ``k``, ``w``}
-                or
-                ``(3, )`` `ndarray`
-                or
-                `list` of len 3
-
-        edge_colour : See Below, optional
-            The edge colour of the figure rectangle.
-            Example options ::
-
-                {``r``, ``g``, ``b``, ``c``, ``m``, ``k``, ``w``}
-                or
-                ``(3, )`` `ndarray`
-                or
-                `list` of len 3
 
         orientation : {``portrait``, ``landscape``}, optional
             The page orientation.
-        paper_type : See Below, optional
-            The type of the paper.
-            Example options ::
-
-                {``letter``, ``legal``, ``executive``, ``ledger``,
-                 ``a0`` through ``a10``, ``b0` through ``b10``}
-
         transparent : `bool`, optional
             If ``True``, the axes patches will all be transparent; the figure
-            patch will also be transparent unless `face_colour` and/or
-            `edge_colour` are specified. This is useful, for example, for
-            displaying a plot on top of a coloured background on a web page.
-            The transparency of these patches will be restored to their original
-            values upon exit of this function.
+            patch will also be transparent
         pad_inches : `float`, optional
             Amount of padding around the figure.
         overwrite : `bool`, optional
@@ -125,15 +92,11 @@ class MatplotlibRenderer(Renderer):
 
         save_fig_args = {
             "dpi": dpi,
-            "facecolour": face_colour,
-            "edgecolour": edge_colour,
             "orientation": orientation,
-            "papertype": paper_type,
             "format": format,
             "transparent": transparent,
             "pad_inches": pad_inches,
             "bbox_inches": "tight",
-            "frameon": None,
         }
         # Use the export code so that we have a consistent interface
         _export(
